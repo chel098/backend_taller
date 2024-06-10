@@ -1,3 +1,39 @@
 GET http://localhost:8080/v1/ClientList
 Accept: application/json
 ###
+POST http://localhost:8080/v1/AddClient
+Accept: application/json
+Content-Type: application/json
+
+{
+  "nombre": "pEDRO",
+  "fecha_nacimiento": "2020-01-01",
+  "ci": "2934223",
+  "correo": "alskjd@lksdjlfs",
+  "usuario": "johndoe",
+  "password": "123456",
+  "Altura": 190,
+    "Peso": 90
+
+}
+###
+DELETE http://localhost:8080/v1/DeleteClient/3
+###
+
+PUT http://localhost:8080/v1/ChangeClient
+Accept: application/json
+Content-Type: application/json
+
+{
+  "cc": 1,
+  "nombre": "pEDRO",
+  "fecha_nacimiento": "2020-01-01",
+  "ci": "2934223",
+  "correo": "alskjd@lksdjlfs",
+  "usuario": "johndoe",
+  "password": "123456",
+  "Altura": 190,
+  "Peso": 90
+  }
+###
+GET http://localhost:8080/v1/FindProv/1

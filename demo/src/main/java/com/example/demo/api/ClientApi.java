@@ -27,4 +27,29 @@ public class ClientApi {
         System.out.println("Invocando al metodo GET :0");
         return clientBl.getClientList();
     }
+
+    @RequestMapping(value = "/AddClient",method= RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Cliente CreateClient(@RequestBody Cliente cliente) {
+        System.out.println("Invocando al metodo POST :0");
+        return clientBl.createClient(cliente);
+    }
+    @RequestMapping(value = "/DeleteClient/{CC}",method= RequestMethod.DELETE)
+    public String DeleteClient(@PathVariable("CC") Integer CC) {
+        try {
+            clientBl.deleteClient(CC);
+            return "Borrado correcto";
+        }
+        catch (Exception e){
+            return ("Borrado no logrado ");
+        }
+    }
+    @RequestMapping(value = "/ChangeClient",method= RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Cliente ChangeClient(@RequestBody Cliente cliente) {
+        System.out.println("Invocando al metodo PUT :0");
+        return clientBl.changeClient(cliente);
+    }
+    @RequestMapping(value = "/FindProv/{CC}",method= RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public Cliente ChangeClient(@PathVariable("CC") Integer CC) {
+        return clientBl.searchClient(CC);
+    }
 }
